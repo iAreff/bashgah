@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir='rtl' lang="fa" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        فروشگاه تحریر عارف | {% block title %} صفحه اصلی {% endblock title %}
+    </title>
+    {% comment %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous">
+    {% endcomment %}
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- css -->
+    <link rel="stylesheet" href="{% static "/vendor/bootstrap-4.5.3/css/bootstrap.min.css"%}">
+    <link rel="stylesheet" href="{% static "/vendor/owl-carousel-2.3.4/assets/owl.carousel.min.css"%}">
+    <link rel="stylesheet" href="{% static "/css/style.css"%}">
+    <link rel="stylesheet" href="{% static "/css/custom.css"%}">
+    <!-- js -->
+    <script src="{% static "/vendor/jquery-3.3.1/jquery.min.js"%}"></script>
+    <script src="{% static "/vendor/bootstrap-4.5.3/js/bootstrap.bundle.min.js"%}"></script>
+    <script src="{% static "/vendor/owl-carousel-2.3.4/owl.carousel.min.js"%}"></script>
+    <script src="{% static "/js/main.js"%}"></script>
+    <!-- font - fontawesome -->
+    <link rel="stylesheet" href="{% static "/vendor/fontawesome-5.6.3/css/all.min.css"%}">
+</head>
+
+<body>
+
+    {% comment %} {% include "partials/navbar.html" %} {% endcomment %}
+    {% include "partials/header.html" %}
+
+    <section>
+        {% block content %}
+            Default Content
+        {% endblock content %}
+    </section>
+
+    {% include "partials/footer.html" %}
+
+    {% include "partials/bootstrap_script.html" %}
+
+</body>
+
+</html>

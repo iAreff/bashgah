@@ -1,0 +1,33 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  <p>{% trans "تاریخ:" %} {{ attendance_date }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>{% trans "شماره" %}</th>
+          <th>{% trans "ورزشکار" %}</th>
+          <th>{% trans "حضور" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ac in athlete_courses %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ ac.athlete }}</td>
+            <td>
+              <input type="checkbox" name="present_{{ ac.id }}"
+                {% if existing_attendance|get_item:ac.id and existing_attendance|get_item:ac.id.status %}checked{% endif %}>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <input type="submit" value="{% trans 'ثبت حضور و غیاب' %}">
+  </form>
+  <p><a href="{% url 'admin:apps_main_course_changelist' %}">{% trans "بازگشت" %}</a></p>
+{% endblock %}
